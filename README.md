@@ -36,3 +36,5 @@ Runtime configuration is managed through environment variables, allowing for fle
 ## Scope Boundary
 
 This repository does not include infrastructure, CI/CD, or orchestration configurations, which are managed in a separate Terraform-based repository.
+
+---
