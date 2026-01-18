@@ -1,14 +1,14 @@
 #!/bin/sh
 set -e
 
-if [ -z "$BACKEND_BASE_URL" ]; then
-  echo "ERROR: BACKEND_BASE_URL is not set"
+if [ -z "$BACKEND_INTERNAL_ALB" ]; then
+  echo "ERROR: BACKEND_INTERNAL_ALB is not set"
   exit 1
 fi
 
-echo "Injecting BACKEND_BASE_URL=$BACKEND_BASE_URL"
+echo "Injecting BACKEND_INTERNAL_ALB=$BACKEND_INTERNAL_ALB"
 
-sed -i "s|__BACKEND_BASE_URL__|$BACKEND_BASE_URL|g" \
-  /usr/share/nginx/html/env.js
+sed -i "s|__BACKEND_INTERNAL_ALB__|$BACKEND_INTERNAL_ALB|g" \
+  /etc/nginx/conf.d/default.conf
 
 exec "$@"

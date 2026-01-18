@@ -4,15 +4,8 @@ function App() {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
 
-  const backendUrl = window.RUNTIME_CONFIG?.BACKEND_BASE_URL;
-
   useEffect(() => {
-    if (!backendUrl || backendUrl.includes("__")) {
-      setError("Backend URL not configured");
-      return;
-    }
-
-    fetch(`${backendUrl}/api/message`)
+    fetch("/api/message")
       .then((res) => {
         if (!res.ok) {
           throw new Error("Backend error");
@@ -21,7 +14,7 @@ function App() {
       })
       .then(setData)
       .catch((err) => setError(err.message));
-  }, [backendUrl]);
+  }, []);
 
   if (error) {
     return <h2>Error: {error}</h2>;

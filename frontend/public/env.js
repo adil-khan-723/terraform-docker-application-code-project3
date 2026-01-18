@@ -1,3 +1,0 @@
-window.RUNTIME_CONFIG = {
-  BACKEND_BASE_URL: "__BACKEND_BASE_URL__"
-};
